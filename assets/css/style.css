@@ -3,6 +3,7 @@ body{
     min-height: 100vh;
 }
 
+/* Home page */
 .info{
     height: 2.5vh;
     text-align: center;
@@ -120,6 +121,16 @@ nav .account a img{
 .cta a:hover{
     color: white;
     background-color: #29354b;
+}
+
+/* Boat Page */
+.boats{
+    background-image: url('../img/sea.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 85vh;
+    padding: 0 25% 0 25%;
 }
 
 footer{

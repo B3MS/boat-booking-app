@@ -19,6 +19,9 @@ $page = $_GET['page'] ?? null;
 // Load view
 switch($page)
 {
+    case 'boats':
+        (new BoatController())->index();
+        break;
     case 'home':
     default:
         (new HomeController())->home();
