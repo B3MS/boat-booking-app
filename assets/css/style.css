@@ -1,0 +1,132 @@
+body{
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.info{
+    height: 2.5vh;
+    text-align: center;
+    background-color: #29354b;
+    color: white;
+    font-size: 1.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav{
+    height: 10vh;
+    display: grid;
+    grid-template-columns: 27.5% 45% 27.5% ;
+}
+
+nav img{
+    text-align: center;
+    height: 9.5vh;
+    margin: auto;
+}
+
+nav .links{
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+}
+
+nav .links a{
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
+    font-size: 2.5vh;
+    margin: 2.25vh 15% 2.25vh 15%;
+    padding: 1.25vh 0 1.25vh 0;
+}
+
+nav .links a:hover{
+    color: white;
+    background-color: #29354b;
+    border-radius: 100px;
+}
+
+nav .account{
+    width: 100%;
+    margin-left: auto;
+    margin-right: 0;
+    display: grid;
+    grid-template-areas: 
+        'a a b'
+    ;
+}
+
+nav .account p{
+    font-size: 2vh;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav .account a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .account a img{
+    height: 8vh;
+}
+
+.content{
+    background-image: url('../img/boat.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 85vh;
+    display: grid;
+    grid-template-columns: 15% 25% 60%;
+}
+
+.content .center{
+    display: flex;
+    align-items: center;
+}
+
+.cta{
+    height: 30vh;
+    width: 100%;
+    background-color: #cebd89;
+    color: #29354b;
+    border-radius: 2.5vh;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    text-align: center;
+}
+
+.cta h1{
+    font-size: 3.5vh;
+}
+
+.cta p{
+    font-size: 2.5vh;
+    margin-bottom: 10vh;
+}
+
+.cta a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 2.5vh;
+    background-color: white;
+    padding: 2vh;
+    border-radius: 2.5vh;
+}
+
+.cta a:hover{
+    color: white;
+    background-color: #29354b;
+}
+
+footer{
+    height: 2.5vh;
+    background-color: #29354b;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 1.25vh;
+}
