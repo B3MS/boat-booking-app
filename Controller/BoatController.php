@@ -24,7 +24,9 @@ class BoatController
 
         // Fetch all boats from database
         $sql = "SELECT * FROM boats";
-        $rawBoats = $databaseManager->connection->query($sql)->fetchAll();
+        $result = $databaseManager->connection->prepare($sql);
+        $result->execute();
+        $rawBoats = $result->fetchAll();
 
         $boats = [];
 

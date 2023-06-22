@@ -129,8 +129,40 @@ nav .account a img{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 85vh;
-    padding: 0 25% 0 25%;
+    min-height: 80vh;
+    padding: 5vh 25% 0 25%;
+}
+
+.boat-container{
+    background-color: white;
+    border-radius: 2.5vh;
+}
+
+.boat{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20% 20%;
+    padding: 1vh;
+    border-bottom: 1px solid black;
+}
+
+.boat:last-child{
+    border: none;
+}
+
+.boat span{
+    text-align: center;
+}
+
+.boat a{
+    text-decoration: none;
+    padding: 0.8vh;
+    border-radius: 2.5vh;
+    color: white;
+    background-color: #29354b;
+}
+
+.boat a:hover{
+    background-color: #cebd89;
 }
 
 footer{
