@@ -12,6 +12,7 @@ class User
 
     public function __construct(string $username, string $name, string $surname, string $email, string $password)
     {
+        $this->username = $username;
         $this->name = $name;
         $this->surname = $surname;
         $this->email = $email;

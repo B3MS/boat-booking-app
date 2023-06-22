@@ -1,0 +1,55 @@
+body{
+    margin: 0 auto;
+}
+
+.container{
+    background-image: url('../img/sea.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+form{
+    width: 25%;
+    padding: 3vh;
+    background-color: white;
+    border-radius: 2.5vh;
+}
+
+form .inputs{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+form .inputs input{
+    margin-bottom: 1vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    border-radius: 2.5vh;
+}
+
+input[type=submit]{
+    width: 100%;
+    cursor: pointer;
+    color: white;
+    background-color: #29354b;
+    border: none;
+    border-radius: 2.5vh;
+    padding: 1vh;
+    margin-top: 2vh;
+}
+
+input[type=submit]:hover{
+    background-color: #cebd89;
+}
+
+.container form .error{
+    color: white;
+    background-color: lightcoral;
+    border-radius: 2.5vh;
+    padding: 1vh;
+}

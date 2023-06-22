@@ -18,8 +18,25 @@
             <a href="index.php?page=about">About</a>
             <a href="index.php?page=boats">Boats</a>
         </div>
-        <div class="account">
-            <p>Welcome back, </br> name</p>
-            <a href="./index.php?page=account"><img src="./assets/img/account.png" alt="account"></a>
-        </div>
+        <?php
+            if(isset($_SESSION['username']))
+            {
+                echo 
+                "<div class='account'>
+                    <p>Welcome back, </br> {$_SESSION['username']}</p>
+                    <a href='./index.php?page=account'><img src='./assets/img/account.png' alt='account'></a>
+                </div>";
+            }
+            else
+            {
+                echo 
+                "<div class='account'>
+                    <p>
+                        <a href='./index.php?page=signup'>Sign Up</a></br>
+                        <a href='./index.php?page=login'>Log In</a>
+                    </p>
+                    <a href='./index.php?page=signup'><img src='./assets/img/account.png' alt='account'></a>
+                </div>";
+            }
+        ?>
     </nav>

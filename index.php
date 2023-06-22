@@ -19,6 +19,12 @@ $page = $_GET['page'] ?? null;
 // Load view
 switch($page)
 {
+    case 'signupHandler':
+        (new UserController())->signup();
+        break;
+    case 'signup':
+        (new UserController())->signupIndex();
+        break;
     case 'boats':
         (new BoatController())->index();
         break;

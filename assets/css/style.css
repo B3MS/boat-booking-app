@@ -65,6 +65,18 @@ nav .account p{
     align-items: center;
 }
 
+nav .account p a{
+    text-decoration: none;
+    color: inherit;
+    padding: 1.25vh;
+}
+
+nav .account p a:hover{
+    color: white;
+    background-color: #29354b;
+    border-radius: 100px;
+}
+
 nav .account a{
     display: flex;
     justify-content: center;
