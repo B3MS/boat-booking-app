@@ -23,7 +23,7 @@
             {
                 echo 
                 "<div class='account'>
-                    <p>Welcome back, </br> {$_SESSION['username']}</p>
+                    <p>Welcome back, </br> {$_SESSION['username']}</br><a href='./index.php?page=logout'>Log Out</a></p>
                     <a href='./index.php?page=account'><img src='./assets/img/account.png' alt='account'></a>
                 </div>";
             }

@@ -13,12 +13,23 @@ require 'Controller/BookingController.php';
 require 'Controller/UserController.php';
 require 'Controller/HomeController.php';
 
+session_start();
+
 // Get current page
 $page = $_GET['page'] ?? null;
 
 // Load view
 switch($page)
 {
+    case 'logout';
+        (new UserController())->logout();
+        break;
+    case 'loginHandler';
+        (new UserController())->loginHandler();
+        break;
+    case 'login':
+        (new UserController())->loginIndex();
+        break;
     case 'signupHandler':
         (new UserController())->signup();
         break;
