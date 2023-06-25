@@ -4,14 +4,18 @@ declare(strict_types=1);
 
 class Booking
 {
-    public int $user_id;
-    public int $boat_id;
+    public string $name;
+    public string $surname;
     public string $date;
+    public string $boatname;
+    public float $price;
 
-    public function __construct(int $user_id, int $boat_id, string $date)
+    public function __construct(string $name, string $surname, string $date, string $boatname, float $price)
     {
-        $this->user_id = $user_id;
-        $this->boat_id = $boat_id;
+        $this->name = $name;
+        $this->surname = $surname;
         $this->date = $date;
+        $this->boatname = $boatname;
+        $this->price = $price;
     }
 }
