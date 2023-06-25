@@ -9,7 +9,9 @@
 <body>
 <div class="container">
     <div class="info">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis autem dolor perferendis obcaecati aspernatur eos soluta iste quo. Optio fugit nam nobis dolores commodi facere, ipsum reprehenderit dolor vel iure.
+        <span><img src="./assets/img/location.png" alt="location">Boating Street 66</span>
+        <span><img src="./assets/img/mail.png" alt="mail">info@example.be</span>
+        <span><img src="./assets/img/time.png" alt="time">Mon-Fri: 8am-8pm Sat: 10am-5pm</span>
     </div>
     <nav>
         <img src="./assets/img/logo.jpg" alt="logo">
