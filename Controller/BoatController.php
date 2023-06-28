@@ -32,7 +32,8 @@ class BoatController
 
         foreach($rawBoats as $rawBoat)
         {
-            $boats[] = new Boat($rawBoat['id'], $rawBoat['name'], $rawBoat['type'], $rawBoat['capacity'], $rawBoat['price']);
+            $boats[] = new Boat($rawBoat['id'], $rawBoat['name'], $rawBoat['type'], $rawBoat['capacity'], 
+            $rawBoat['price'], $rawBoat['img']);
         }
 
         return $boats;

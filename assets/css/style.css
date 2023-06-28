@@ -160,20 +160,10 @@ nav .account a img{
     padding: 5vh 25% 0 25%;
 }
 
-.boat-container{
-    background-color: white;
-    border-radius: 2.5vh;
-}
-
 .boat{
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20% 20%;
     padding: 1vh;
-    border-bottom: 1px solid black;
-}
-
-.boat:last-child{
-    border: none;
 }
 
 .boat span{
@@ -190,6 +180,14 @@ nav .account a img{
 
 .boat a:hover{
     background-color: #cebd89;
+}
+
+.boat a img{
+    width: 100px;
+}
+
+.boat a span{
+    margin-top: -10px;
 }
 
 footer{
