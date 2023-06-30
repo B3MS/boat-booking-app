@@ -21,6 +21,9 @@ $page = $_GET['page'] ?? null;
 // Load view
 switch($page)
 {
+    case 'addBooking':
+        (new BookingController())->addBooking();
+        break;
     case 'account':
         (new BookingController())->account();
         break;

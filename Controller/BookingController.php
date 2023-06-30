@@ -56,7 +56,35 @@ class BookingController
 
     public function addBooking() 
     {
+        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['username']))
+        {
+            // Prepare database connection
+            require_once './config.php';
+            require_once './Model/DatabaseManager.php';
 
+            $databaseManager = new DatabaseManager($config['host'], $config['user'], $config['password'], $config['dbname']);
+            $databaseManager->connect();
+
+            $date = date("Y-m-{$_POST['day']}");
+
+            $sql = "SELECT id FROM users WHERE username = '{$_SESSION['username']}'";
+            $user = $databaseManager->connection->prepare($sql);
+            $user->execute();
+            $userid = $user->fetchAll();
+
+            $sql = "INSERT INTO bookings (user_id, boat_id, date)
+            VALUES (?, ?, ?)";
+            $insert = $databaseManager->connection->prepare($sql);
+            $insert->execute([$userid[0]['id'], $_POST['boatid'], $date]);
+
+            header('Location: index.php?page=account');
+            exit;
+        }
+        else
+        {
+            header("Location: index.php?page=boats");
+            exit;
+        }
     }
 
     public function changeBooking()

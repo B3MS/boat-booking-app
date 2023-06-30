@@ -215,6 +215,10 @@ nav .account a img{
     grid-template-rows: 10% 10% 10% 10% 60%;
 }
 
+.details .bookingInfo form input[type=number]{
+    display: none;
+}
+
 .details .bookingInfo form .calendar{
     width: 100%;
     height: 80%;
@@ -240,6 +244,7 @@ nav .account a img{
     position: relative;
     width: 100%;
     height: 100%;
+    border-radius: 100%;
     text-align: center;
     font-size: 25px;
     display: flex;
@@ -259,10 +264,17 @@ nav .account a img{
     height: 15%;
     margin-top: 5%;
     margin-left: 20%;
+    text-decoration: none;
+    padding: 0.8vh;
+    border: none;
+    border-radius: 2.5vh;
+    color: white;
+    background-color: #29354b;
 }
 
 .details .bookingInfo form input[type=submit]:hover{
     cursor: pointer;
+    background-color: #cebd89;
 }
 
 footer{

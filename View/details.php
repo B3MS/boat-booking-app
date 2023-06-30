@@ -11,10 +11,13 @@
         <?php
             if(isset($_SESSION['username']))
             {
-                echo '<form action="./index.php?page=addBooking" method="post"><div class="calendar">';
-                echo '<div class="days">Mon</div><div class="days">Tue</div><div class="days">Wed</div>
-                <div class="days">Thu</div><div class="days">Fri</div><div class="days">Sat</div>
-                <div class="days">Sun</div>';
+                echo "
+                <form action='./index.php?page=addBooking' method='post'>
+                <input type='number' name='boatid' id='boatid' value='{$_GET['boatid']}'>
+                <div class='calendar'>
+                <div class='days'>Mon</div><div class='days'>Tue</div><div class='days'>Wed</div>
+                <div class='days'>Thu</div><div class='days'>Fri</div><div class='days'>Sat</div>
+                <div class='days'>Sun</div>";
                 $firstDay = date('D', strtotime(date('01-m-Y')));
                 switch($firstDay)
                 {
