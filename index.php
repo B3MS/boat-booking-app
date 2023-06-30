@@ -42,6 +42,9 @@ switch($page)
     case 'boats':
         (new BoatController())->index();
         break;
+    case 'details':
+        (new BoatController())->show();
+        break;
     case 'home':
     default:
         (new HomeController())->home();

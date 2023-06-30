@@ -3,7 +3,7 @@
 <div class="boats">
     <?php foreach ($boats as $boat) : ?>
         <div class="boat">
-            <a href="./index.php?boatid=<?= $boat->id ?>">
+            <a href="./index.php?page=details&boatid=<?= $boat->id ?>">
                 <img src="<?= $boat->img ?>" alt="<?= $boat->type ?>">
                 <span><?= $boat->name ?></span>
             </a>
