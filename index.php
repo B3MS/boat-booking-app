@@ -8,6 +8,7 @@ require 'Model/Booking.php';
 require 'Model/User.php';
 
 // Include all controllers
+require 'Controller/AccountController.php';
 require 'Controller/BoatController.php';
 require 'Controller/BookingController.php';
 require 'Controller/UserController.php';
@@ -21,6 +22,9 @@ $page = $_GET['page'] ?? null;
 // Load view
 switch($page)
 {
+    case 'deleteBooking':
+        (new BookingController())->deleteBooking();
+        break;
     case 'changeBooking':
         (new BookingController())->changeBooking();
         break;
@@ -28,7 +32,7 @@ switch($page)
         (new BookingController())->addBooking();
         break;
     case 'account':
-        (new BookingController())->account();
+        (new AccountController())->index();
         break;
     case 'logout';
         (new UserController())->logout();

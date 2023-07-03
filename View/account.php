@@ -9,10 +9,15 @@
 <body>
     <div class="container">
         <div class="bookings">
+            <h1>My Bookings</h1>
+            <div class="booking">
+                <span>Boat</span>
+                <span>Date</span>
+                <span>Price</span>                
+            </div>
+            <hr>
             <?php foreach ($bookings as $booking) : ?>
                 <div class="booking">
-                    <span><?= $booking->name ?></span>
-                    <span><?= $booking->surname ?></span>
                     <span><?= $booking->boatname ?></span>
                     <span><?= $booking->date ?></span>
                     <span>&euro; <?= $booking->price ?></span>
@@ -26,6 +31,10 @@
             <?php endforeach; ?>
         </div>
         <div class="accountInfo">
+            <span>Hello, <?= $user->username ?></span>
+            <span>Name: <br> <?= $user->name ?> <?= $user->surname ?></span>
+            <span>E-mail: <br> <?= $user->email ?></span>
+            <div class="empty"></div>
             <a href="index.php?page=home">Back To Home</a>
             <a href="index.php?page=logout">Log Out</a>
         </div>

@@ -45,6 +45,8 @@ class BoatController
             $rawBoat['price'], $rawBoat['img']);
         }
 
+        $connection = null;
+
         return $boats;
     }
 
@@ -62,6 +64,8 @@ class BoatController
         $result = $databaseManager->connection->prepare($sql);
         $result->execute();
         $rawBoats = $result->fetchAll();
+
+        $connection = null;
         
         // Checking for valid id in case of manual input in url.
         if(!empty($rawBoats))

@@ -4,22 +4,7 @@ declare(strict_types = 1);
 
 class BookingController
 {
-    public function account()
-    {
-        if(isset($_SESSION['username']))
-        {
-            $bookings = $this->getBookings();  
-
-            require './View/account.php';
-        }    
-        else
-        {
-            header('Location: index.php');
-            exit;
-        }  
-    }
-
-    private function getBookings()
+    public function getBookings()
     {
         if(isset($_SESSION['username']))
         {
@@ -49,6 +34,8 @@ class BookingController
                 $rawBooking['boatname'], $rawBooking['price']);
             }
 
+            $connection = null;
+
             return $bookings;
         }
         
@@ -76,6 +63,8 @@ class BookingController
             VALUES (?, ?, ?)";
             $insert = $databaseManager->connection->prepare($sql);
             $insert->execute([$userid[0]['id'], $_POST['boatid'], $date]);
+
+            $connection = null;
 
             header('Location: index.php?page=account');
             exit;
@@ -114,12 +103,16 @@ class BookingController
                 $update = $databaseManager->connection->prepare($sql);
                 $update->execute();
 
+                $connection = null;
+
                 header("Location: index.php?page=account");
                 exit;
             }
         }
         else
         {
+            $connection = null;
+
             header("Location: index.php?page=home");
             exit;
         }
@@ -127,6 +120,41 @@ class BookingController
 
     public function deleteBooking()
     {
-        
+        if(isset($_SESSION['username']))
+        {
+            // Prepare database connection
+            require_once './config.php';
+            require_once './Model/DatabaseManager.php';
+
+            $databaseManager = new DatabaseManager($config['host'], $config['user'], $config['password'], $config['dbname']);
+            $databaseManager->connect();
+
+            $sql = "SELECT * FROM bookings
+            JOIN users ON users.id = bookings.user_id
+            WHERE users.username = '{$_SESSION['username']}'
+            AND bookings.id = {$_GET['bookingId']}";
+            $result = $databaseManager->connection->prepare($sql);
+            $result->execute();
+            $control = $result->fetchAll();
+
+            if(!empty($control))
+            {
+                $sql = "DELETE FROM bookings WHERE id = ?";
+                $update = $databaseManager->connection->prepare($sql);
+                $update->execute([$_GET['bookingId']]);
+
+                $connection = null;
+
+                header("Location: index.php?page=account");
+                exit;
+            }
+
+            $connection = null;
+        }
+        else
+        {
+            header("Location: index.php?page=home");
+            exit;
+        }
     }
 }

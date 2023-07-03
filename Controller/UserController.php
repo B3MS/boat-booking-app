@@ -17,6 +17,28 @@ class UserController
         }
     }
 
+    public function getUser() 
+    {
+        // Prepare database connection
+        require './config.php';
+        require_once './Model/DatabaseManager.php';
+
+        $databaseManager = new DatabaseManager($config['host'], $config['user'], $config['password'], $config['dbname']);
+        $databaseManager->connect();
+
+        $sql = "SELECT * FROM users WHERE username = '{$_SESSION['username']}'";
+        $result = $databaseManager->connection->prepare($sql);
+        $result->execute();
+        $rawUser = $result->fetchAll();
+
+        $user = new User($rawUser[0]['username'], $rawUser[0]['name'], $rawUser[0]['surname'], 
+        $rawUser[0]['email'], $rawUser[0]['password']);
+
+        $connection = null;
+
+        return $user;
+    }
+
     public function signup() 
     {
         if($_SERVER['REQUEST_METHOD'] === 'POST')
@@ -48,11 +70,16 @@ class UserController
                     $insert->execute([$user->username, $user->name, $user->surname,
                     $user->email, $user->password]);
                     $_SESSION['username'] = $user->username;
+    
+                    $connection = null;
+
                     header('Location: index.php');
                     exit;
                 }
                 else
-                {
+                {  
+                    $connection = null;
+
                     header('Location: index.php?page=signup&error=User already exists');
                     exit;
                 }
@@ -99,9 +126,11 @@ class UserController
             $result = $databaseManager->connection->prepare($sql);
             $result->execute([$_POST['username'], $_POST['password']]);
             $control = $result->fetchAll();
+               
+            $connection = null;
 
             if(empty($control))
-            {
+            {       
                 header('Location: index.php?page=login&error=User and/or password is incorrect');
                 exit;
             }
