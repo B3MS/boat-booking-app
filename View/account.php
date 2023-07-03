@@ -16,7 +16,11 @@
                     <span><?= $booking->boatname ?></span>
                     <span><?= $booking->date ?></span>
                     <span>&euro; <?= $booking->price ?></span>
-                    <span><a href="index.php?page=changeBooking&bookingId=<?= $booking->id ?>">Change</a></span>
+                    <form action="index.php?page=changeBooking" method="post">
+                        <input type="text" name="bookingId" id="bookingId" value="<?= $booking->id ?>" style="display:none">
+                        <input type="date" name="date" id="date">
+                        <input type="submit" value="Change Date">
+                    </form>
                     <span><a href="index.php?page=deleteBooking&bookingId=<?= $booking->id ?>">Delete</a></span>
                 </div>
             <?php endforeach; ?>

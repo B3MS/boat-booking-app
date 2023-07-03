@@ -32,7 +32,7 @@ class BookingController
 
             // Fetch all bookings from database
             $sql = "
-            SELECT users.name, users.surname, bookings.date, boats.name AS boatname, boats.price  
+            SELECT bookings.id, users.name, users.surname, bookings.date, boats.name AS boatname, boats.price  
             FROM bookings
             JOIN users ON users.id = bookings.user_id
             JOIN boats ON boats.id = bookings.boat_id
@@ -45,7 +45,7 @@ class BookingController
 
             foreach($rawBookings as $rawBooking)
             {
-                $bookings[] = new Booking($rawBooking['name'], $rawBooking['surname'], $rawBooking['date'], 
+                $bookings[] = new Booking($rawBooking['id'], $rawBooking['name'], $rawBooking['surname'], $rawBooking['date'], 
                 $rawBooking['boatname'], $rawBooking['price']);
             }
 
@@ -89,7 +89,40 @@ class BookingController
 
     public function changeBooking()
     {
+        if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['username']))
+        {
+            // Prepare database connection
+            require_once './config.php';
+            require_once './Model/DatabaseManager.php';
 
+            $databaseManager = new DatabaseManager($config['host'], $config['user'], $config['password'], $config['dbname']);
+            $databaseManager->connect();
+
+            $sql = "SELECT * FROM bookings
+            JOIN users ON users.id = bookings.user_id
+            WHERE users.username = '{$_SESSION['username']}'
+            AND bookings.id = {$_POST['bookingId']}";
+            $result = $databaseManager->connection->prepare($sql);
+            $result->execute();
+            $control = $result->fetchAll();
+
+            if(!empty($control))
+            {
+                $sql = "UPDATE bookings
+                SET date = '{$_POST['date']}'
+                WHERE id = {$_POST['bookingId']}";
+                $update = $databaseManager->connection->prepare($sql);
+                $update->execute();
+
+                header("Location: index.php?page=account");
+                exit;
+            }
+        }
+        else
+        {
+            header("Location: index.php?page=home");
+            exit;
+        }
     }
 
     public function deleteBooking()
