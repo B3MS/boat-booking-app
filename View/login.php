@@ -23,6 +23,7 @@
                 <input type="password" name="password" id="password" required>
             </div>
             <input type="submit" value="Log In">
+            <a href="./index.php?page=signup">Don't have an account? Sign Up now!</a>
         </form>
     </div>
 </body>
