@@ -157,37 +157,42 @@ nav .account a img{
     background-position: center;
     background-repeat: no-repeat;
     min-height: 80vh;
-    padding: 5vh 25% 0 25%;
+    padding: 2vh 25% 3vh 25%;
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
 }
 
 .boat{
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20% 20%;
-    padding: 1vh;
+    padding: 0.8vh;
+    border-radius: 2.5vh;
+    background-color: #29354b;
+    margin: 2vh;
+    height: 21vh;
+}
+
+.boat:hover{
+    background-color: #cebd89;
 }
 
 .boat span{
+    position: absolute;
     text-align: center;
+    margin-left: -14%;
+    margin-top: 8.8%;
+    padding: 1vh;
+    background-color: #29354b;
+    border-radius: 2.5vh;
 }
 
 .boat a{
     text-decoration: none;
-    padding: 0.8vh;
-    border-radius: 2.5vh;
     color: white;
-    background-color: #29354b;
-}
-
-.boat a:hover{
-    background-color: #cebd89;
 }
 
 .boat a img{
     width: 100%;
-}
-
-.boat a span{
-    margin-top: -10px;
+    height: 100%;
+    border-radius: 2.5vh;
 }
 
 .details{
@@ -212,7 +217,7 @@ nav .account a img{
     padding: 5%;
     background-color: white;
     display: grid;
-    grid-template-rows: 10% 10% 10% 10% 60%;
+    grid-template-rows: 8% 8% 8% 8% 68%;
 }
 
 .details .bookingInfo form input[type=number]{

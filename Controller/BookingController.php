@@ -150,6 +150,9 @@ class BookingController
             }
 
             $connection = null;
+
+            header("Location: index.php?page=account");
+            exit;
         }
         else
         {
