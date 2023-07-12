@@ -88,3 +88,10 @@ a{
 a:hover{
     background-color: #cebd89;
 }
+
+@media only screen and (max-width: 992px){
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+}

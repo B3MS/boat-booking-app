@@ -11,23 +11,12 @@ body{
     color: white;
     font-size: 1.5vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .info span img{
     height: 1.5vh;
-    margin-right: 5px;
-}
-
-.info span{
-    margin-left: 100px;
-    display: flex;
-    align-items: center;
-}
-
-.info span:first-child{
-    margin-left: 0;
 }
 
 nav{
@@ -40,6 +29,10 @@ nav img{
     text-align: center;
     height: 9.5vh;
     margin: auto;
+}
+
+nav .burger{
+    display: none;
 }
 
 nav .links{
@@ -289,4 +282,78 @@ footer{
     align-items: center;
     color: white;
     font-size: 1.25vh;
+}
+
+@media only screen and (max-width: 992px){
+    .open-menu{
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        background-color: white;
+        z-index: 2;
+    }
+
+    .open-menu .links{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .open-menu .account{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .info{
+        font-size: 1vh;
+    }
+
+    nav{
+        width: 100%;
+        margin: 0;
+        display: block;
+    }
+
+    nav .navheader{
+        height: 10vh;
+        width: 100vw;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav .burger{
+        display: block;
+    }
+
+    nav img{
+        height: 100%;
+    }
+
+    nav .links{
+        display: none;
+    }
+
+    nav .account{
+        display: none;
+    }
+
+    .content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content .left, .content .right{
+        display: none;
+    }
+
+    .boats{
+        padding-inline: 1vw;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .boats .boat span{
+        display: none;
+    }
 }

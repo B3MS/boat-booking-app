@@ -13,11 +13,13 @@
         <span><img src="./assets/img/mail.png" alt="mail">info@example.be</span>
         <span><img src="./assets/img/time.png" alt="time">Mon-Fri: 8am-8pm Sat: 10am-5pm</span>
     </div>
-    <nav>
-        <img src="./assets/img/logo.jpg" alt="logo">
-        <div class="links">
+    <nav id="navbar">
+        <div class="navheader">
+            <img src="./assets/img/logo.jpg" alt="logo">
+            <img src="./assets/img/hamburger.png" alt="menu" id="burger" class="burger">
+        </div>
+        <div class="links" id="links">
             <a href="index.php?page=home">Home</a>
-            <a href="index.php?page=about">About</a>
             <a href="index.php?page=boats">Boats</a>
         </div>
         <?php
@@ -25,7 +27,7 @@
             {
                 echo 
                 "<div class='account'>
-                    <p>Welcome back, </br> {$_SESSION['username']}</br><a href='./index.php?page=logout'>Log Out</a></p>
+                    <p>Welcome back, </br> {$_SESSION['username']}<a href='./index.php?page=logout'>Log Out</a></p>
                     <a href='./index.php?page=account'><img src='./assets/img/account.png' alt='account'></a>
                 </div>";
             }
@@ -34,7 +36,7 @@
                 echo 
                 "<div class='account'>
                     <p>
-                        <a href='./index.php?page=signup'>Sign Up</a></br>
+                        <a href='./index.php?page=signup'>Sign Up</a>
                         <a href='./index.php?page=login'>Log In</a>
                     </p>
                     <a href='./index.php?page=signup'><img src='./assets/img/account.png' alt='account'></a>
@@ -42,3 +44,4 @@
             }
         ?>
     </nav>
+    <script src="./assets/scripts.js"></script>

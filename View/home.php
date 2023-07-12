@@ -2,7 +2,7 @@
 
 
     <div class="content">
-        <div class="lef"></div>
+        <div class="left"></div>
         <div class="center">
             <div class="cta">
                 <h1>Welcome to [boating service]</h1>
