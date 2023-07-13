@@ -91,7 +91,36 @@ a:hover{
 
 @media only screen and (max-width: 992px){
     .container{
+        width: auto;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
     }
+
+    .bookings{
+        margin: 0;
+        margin-bottom: 5vh;
+        height: auto;
+        width: auto;
+    }
+
+    .bookings .booking{
+        display: flex;
+    }
+
+    .bookings .booking form, .bookings .booking span:last-child{
+        display: none;
+    }
+
+    .accountInfo{
+        height: auto;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+
 }
